@@ -28,4 +28,7 @@ def calculate_points():
     minutes = request.args.get('minutes')
     fg = request.args.get('fg%')
     points = model.predict(np.array([fg, minutes]).reshape(1, -1).astype(np.float64))
-    return render_template('prediction.html', minutes=minutes, fg=fg, points=round(points[0], 1))
+    points=round(points[0], 1)
+    if(points < 0):
+        points = 0
+    return render_template('prediction.html', minutes=minutes, fg=fg, points=points)
