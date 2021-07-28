@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        #content {
+            margin: auto;
+            text-align: center;
+        }
+        #submitbutton {
+            display: block;
+            margin: auto;
+            margin-top: 10px;
+        }
+        input {
+            display: block;
+            margin: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="content">
+        <h2>Enter your player's stats: </h2>
+        <form action="/calc" method="get">
+            <label for="fg%">Field Goal Percentage (30-70): </label>
+            <input type="number" id="fg%" name="fg%" min="30" max="70" required>
+            <label for="minutes">Minutes per Game (1-48): </label>
+            <input type="number" id="min" name="minutes" min=1 max=48 required>
+            <input id="submitbutton" type="submit" value="Calculate Predicted Points">
+        </form>
+        {% if points %}
+        {% endif %}
+    </div>
+</body>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', () => {
+        //things to do on page load
+        
+    });
+
+</script>
