@@ -10,14 +10,21 @@ app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['TEMPLATES_AUTO_RELOAD']=True
 
-#SET UP MODEL
+#NBA LINEAR REGRESSION
 stats = pd.read_csv('2021RegularStats.csv')
 stats = stats.loc[stats['MIN'] > 5]
 x = np.array(stats[['FG%', 'MIN']])
 y = np.array(stats['PTS'])
-
 model = linear_model.LinearRegression().fit(x, y)
 
+#TITANIC TREE CLASSIFIER
+titanic = pd.read_csv('titanic.csv')
+#Data cleaning
+features = ['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare']
+#turn string input into numeric input
+x_titanic = titanic[features]
+x_titanic['Sex'] = np.where(x_train['Sex'] == 'male', 1, 0)
+y_titanic = titanic.Survived
 
 @app.route('/')
 def main_page():
@@ -35,4 +42,3 @@ def calculate_points():
 
 @app.route('/titanic')
 def calculate_survival():
-    
