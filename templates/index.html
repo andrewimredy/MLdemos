@@ -14,22 +14,38 @@
             display: block;
             margin: auto;
         }
+        .column {
+            float: left;
+            width: 33.33%;
+        }
+
     </style>
 
 </head>
 
 <body>
     <div id="content">
-        <h2>Enter your player's stats: </h2>
-        <form action="/calc" method="get">
-            <label for="fg%">Field Goal Percentage (30-70): </label>
-            <input type="number" id="fg%" name="fg%" min="30" max="70" required>
-            <label for="minutes">Minutes per Game (1-48): </label>
-            <input type="number" id="min" name="minutes" min=1 max=48 required>
-            <input id="submitbutton" type="submit" value="Calculate Predicted Points">
-        </form>
-        {% if points %}
-        {% endif %}
+        <div class='column'>
+            <h2>NBA Points Prediction</h2>
+            <h4>Enter your player's stats</h4>
+            <form action="/nba" method="get">
+                <label for="fg%">Field Goal Percentage (30-70): </label>
+                <input type="number" id="fg%" name="fg%" min="30" max="70" required>
+                <label for="minutes">Minutes per Game (1-48): </label>
+                <input type="number" id="min" name="minutes" min=1 max=48 required>
+                <input id="submitbutton" type="submit" value="Calculate Predicted Points">
+            </form>
+        </div>
+        <div class='column'>
+            <h2>Titanic Survival Prediction</h2>
+            <h4>Enter your passenger's attributes</h4>
+            <form action='/titanic'method='get'>
+                
+            </form>
+        </div>
+        <div class="column">
+            <h2>More predictions coming soon!</h2>
+        </div>
     </div>
 </body>
 

@@ -23,7 +23,7 @@ model = linear_model.LinearRegression().fit(x, y)
 def main_page():
     return render_template('index.html')
 
-@app.route('/calc')
+@app.route('/nba')
 def calculate_points():
     minutes = request.args.get('minutes')
     fg = request.args.get('fg%')
@@ -31,4 +31,8 @@ def calculate_points():
     points=round(points[0], 1)
     if(points < 0):
         points = 0
-    return render_template('prediction.html', minutes=minutes, fg=fg, points=points)
+    return render_template('nba.html', minutes=minutes, fg=fg, points=points)
+
+@app.route('/titanic')
+def calculate_survival():
+    
